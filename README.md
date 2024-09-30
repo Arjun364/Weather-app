@@ -22,6 +22,7 @@ it is basic structure with tailwind and react icons [more things will be added l
  -- Tailwind css :+ npm install -D tailwindcss 
  -- React flowbite :+ npm i flowbite-react 
  -- React Material :+ npm install @mui/material @emotion/react @emotion/styled || npm install @mui/material @mui/styled-engine-sc styled-components
+ -- React lordicons :+ npm install @lordicon/react || npm install lottie-web
 
  -----------------------------------------------------------------------------------------------------------------------------------------
 

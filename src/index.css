@@ -19,7 +19,10 @@
 }
 
 .heading-l{
-  @apply text-[50px] font-poppins  font-bold;
+  @apply text-[40px] font-poppins  font-bold;
+}
+.heading-lg{
+  @apply text-[30px] font-poppins  font-bold;
 }
 
 .heading-m{
