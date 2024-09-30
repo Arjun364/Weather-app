@@ -43,7 +43,9 @@ const Main = () => {
             const localDate = new Date(Date.now() + timezoneOffsetSeconds * 1000); // Adjust current UTC time
             setTimezone(localDate.toLocaleString())
             // set temperature
-            setTemp(data.main.temp)
+            // data.main.temp
+            // setTemp(data.main.temp)
+            setTemp(Math.floor((data.main.temp - 32) * 5/9))
             // weather type
             setWeather(data.weather[0].main)
             // wind speed
@@ -76,26 +78,26 @@ const Main = () => {
 
 
     return (
-        <Box className='w-full h-full border-2 border-dotted border-black bg-cover bg-no-repeat bg-center pt-[4rem] flex flex-col items-center justify-center gap-5 '
+        <Box className='w-full min-h-full md:h-full border-2 border-dotted border-black bg-cover bg-no-repeat bg-center pt-[6rem] pb-[4rem] md:pb-0 md:pt-[4rem] px-[2rem] flex flex-col items-center justify-center gap-5 '
             sx={{ backgroundImage: `url(${cloudImg})`, }} >
             {error && 
             <Alert color="failure" icon={HiInformationCircle}>
                 <span className="font-medium">Error alert!</span> {error}
             </Alert>}
-            <Box className='flex items-center justify-center gap-5' >
-                <Box component={"div"} className='w-[30rem] h-auto flex flex-col gap-4 bg-white p-[3rem] rounded-md shadow-lg' >
+            <Box className='flex flex-col md:flex-row items-center justify-center gap-5' >
+                <Box component={"div"} className='max-w-[30rem] h-auto flex flex-col gap-4 bg-white p-[2rem] md:p-[3rem] rounded-md shadow-lg' >
                     <h1 className="heading-l">
                         Enter the District
                     </h1>
-                    <FloatingLabel onChange={(e) => setCity(e.target.value)} variant="standard" label="Enter name of district" className=' dark:text-black' />
+                    <FloatingLabel onChange={(e) => setCity(e.target.value)} variant="standard" label="Enter name of district" className='text-[14px] md:text-base dark:text-black' />
                     <Button color="blue" className='w-full' onClick={DisplayWeather}>Submit</Button>
                 </Box>
-                <Box id='result' component={"div"} className={`w-[30rem] bg-white p-[3rem] items-center gap-6 rounded-sm shadow-xl ${!showResult ? 'hidden' : 'flex'}`}>
-                    <img src={weathericon} className='w-[11rem] h-[11rem]' alt="" />
+                <Box id='result' component={"div"} className={`max-w-[30rem] mb-[2rem] md:mb-0 bg-white p-[2rem] flex-col md:flex-row md:p-[3rem] items-center gap-6 rounded-sm shadow-xl ${!showResult ? 'hidden' : 'flex'}`}>
+                    <img src={weathericon} className='w-[7rem] md:w-[11rem] h-[7rem] md:h-[11rem]' alt="" />
                     <Box component={"div"}>
                         <p>{timezone ? timezone : "local time"}</p>
                         <h2 className='heading-lg'>{cityname ? cityname : "City name"}</h2>
-                        <p className='heading-m'>{temp ? temp : "Temp"} °c</p>
+                        <p className='heading-m'>{temp ? temp : "Temp"} °C</p>
                         <span>{weather ? weather : "weather"}</span> || <span>{wSpeed ? wSpeed : "Wind Speed"} m/s</span> || <span>{humidity ? humidity : "Humidity"} %</span>
                     </Box>
                 </Box>

@@ -10,7 +10,7 @@ const Header = () => {
     }, []);
 
     return (
-        <Navbar fluid className='absolute top-0 w-full flex justify-center px-[2rem] py-3 dark:bg-black/15 backdrop-blur-md'>
+        <Navbar fluid className='md:absolute top-0 w-full flex justify-center px-[2rem] py-3 dark:md:bg-black/15 backdrop-blur-md'>
             <Navbar.Brand className='flex items-center gap-3' as={Link} href="https://flowbite-react.com">
                 <img className='w-[3rem] '  src={icon} alt="" />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
